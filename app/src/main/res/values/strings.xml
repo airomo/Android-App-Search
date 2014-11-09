@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">APPS SEARCH, SIMPLIFIED !</string>
+    <string name="loading">LOADING</string>
+    <string name="redirecting">REDIRECTING</string>
+    <string name="action_back">BACK</string>
+    <string name="action_reload">RELOAD</string>
+
+</resources>
