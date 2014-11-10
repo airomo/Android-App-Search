@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.DownloadListener;
 import android.webkit.WebBackForwardList;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -135,6 +136,16 @@ public class MainActivity extends Activity implements OnClickListener {
         		view.setVisibility(View.VISIBLE); 
         		ibActionRefresh.setEnabled(true);
         	}       	
+        });
+
+        wvMain.setDownloadListener(new DownloadListener() {
+            public void onDownloadStart(String url, String userAgent,
+                                        String contentDisposition, String mimetype,
+                                        long contentLength) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
         });
         
         wvMain.loadUrl(URL);
