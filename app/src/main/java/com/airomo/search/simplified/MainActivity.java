@@ -14,7 +14,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,11 +32,12 @@ public class MainActivity extends Activity implements OnClickListener {
         
         ActionBar actionBar = getActionBar();
         View mActionBarView = getLayoutInflater()
-                .inflate(R.layout.action_bar_custom,
-                        new RelativeLayout(getApplicationContext()),
-                        false);
-        actionBar.setCustomView(mActionBarView);
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+                .inflate(R.layout.action_bar_custom, null);
+        if (actionBar != null) {
+            actionBar.setCustomView(mActionBarView);
+            actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        }
+
         
         tvMessage = (TextView) findViewById(R.id.tvMessage);
 
